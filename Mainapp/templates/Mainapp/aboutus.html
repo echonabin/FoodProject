@@ -1,0 +1,43 @@
+
+{% extends 'Mainapp/base.html'%}
+{% load static %}
+
+{% block content%}
+<style>
+  *{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+  }
+ 
+ img{
+   border-top-left-radius: 30px;
+   border-bottom-left-radius: 30px;
+ }
+
+
+ 
+</style>
+ 
+  <section class="form my-4 mx-5">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-lg-5">
+          <img src="{% static 'images/3.jpg' %}" class="img-fluid" alt="...">
+        </div>
+        <div class="col-lg-7 px-5 pt-5">
+          <h4>Know more about us</h4>
+        
+            <div class="form-row">
+              <div class="col-lg-7">
+               <p class="lead my-5">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt, repellat? Eos nostrum repudiandae iste quia voluptate corrupti, quaerat obcaecati illo quasi quidem labore facilis. Vero repellat veniam architecto. Molestias, sunt?
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt, repellat? Eos nostrum repudiandae iste quia voluptate corrupti, quaerat obcaecati illo quasi quidem labore facilis. Vero repellat veniam architecto. Molestias, sunt?
+               </p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div> 
+  </section>
+{% endblock content %}
