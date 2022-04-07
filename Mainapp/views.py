@@ -15,6 +15,7 @@ from .models import *
 def home(request):
     return render(request, 'Mainapp/index.html')
 
+
 def aboutus(request):
     return render(request, 'Mainapp/aboutus.html')
 
@@ -25,8 +26,18 @@ def restaurant(request):
     return render(request, 'Mainapp/restaurant.html')
 
 def login(request):
-    context = {}
-    return render(request, 'Mainapp/login.html',context) 
+
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user)
+        return redirect('Mainapp/index.html')
+        
+    else:
+        messages.success(request, 'Account creation failed!')
+   
+    return render(request, 'Mainapp/login.html') 
 
 
 
@@ -41,31 +52,16 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}!')
-            return redirect('home')
+            return redirect('login')
     else:
         form = UserRegisterForm()
     return render(request, 'Mainapp/register.html', {'form': form})
 
+def logout_view(request):
+    if request.method == 'POST':
+            logout(request)
+            return redirect('/')
 
-
-# def register(request):
-#     if request.method == 'POST':
-#         fname = request.POST['fname']
-#         lname = request.POST['lname']
-#         email = request.POST['email']
-#         mobile = request.POST['mobile']
-#         password1 = request.POST['password1']
-#         password2 = request.POST['password2']
-
-#         user = User.object.create_user(fname=fname,l_name=lname,email=email,password=password1)
-#         user.save()
-#         print('user created')
-#         return redirect('Mainapp/login.html')
-#     else:    
-
-
-
-#            return render(request, 'Mainapp/register.html')
 
    
 

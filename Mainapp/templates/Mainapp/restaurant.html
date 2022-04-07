@@ -1,9 +1,61 @@
 {% extends 'Mainapp/base.html'%}
    {% load static %}
    
-
-
 {% block content%}
-     <h3>restaurant</h3>
+
+
+<style>
+  .inner{
+     overflow: hidden;
+
+  }
+  .inner img{
+     transition: all 1.5s ease;
+  }
+  .inner:hover img{
+     transform: scale(1.5);
+  }
+
+ </style>     
+       <section class="p-5">
+           <div class="container">
+           <div class="row text-align-center">
+             <div class="col-md">
+               <div class="card" style="width: 18rem;">
+                <div class="inner">
+                  <img src="{% static 'images/5.jpg' %}" class="card-img-top" alt="...">
+                </div>
+                 <h4> <span class="text-dark text-align-center ">Bajeko Sekuwa </span> </h4>
+
+               </div>
+             </div>
+             <div class="col-md">
+               <div class="card" style="width: 18rem;">
+                 <div class="inner">
+                  <img src="{% static 'images/1.jpg' %}" class="card-img-top" alt="...">
+                 </div>
+                 <h4> <span class="text-dark text-align-center ">Burger House</span> </h4>
+               </div>
+             </div>
+             <div class="col-md">
+               <div class="card" style="width: 18rem;">
+                 <div class="inner">
+                  <img src="{% static 'images/1.jpg' %}" class="card-img-top" alt="...">
+                 </div>
+                 <h4> <span class="text-dark text-align-center ">Burger House</span> </h4>
+               </div>
+             </div>
+             <div class="col-md">
+               <div class="card" style="width: 18rem;">
+                <div class="inner">
+                  <img src="{% static 'images/2.jpg' %}" class="card-img-top" alt="...">
+                </div>
+                 <h5> <span class="text-dark text-align-center ">Chicken Station</span> </h5>
+               </div>
+             </div>
+           </div>
+         </div>
+       </section>
+     
       {% endblock content%}
      

@@ -46,7 +46,7 @@
               <a href="{% url 'logout' %}" class="btn btn-success">Logout</a>
             {% else %}
             <form class="container-fluid justify-content-start">
-              <button class="btn btn-outline-success me-2 " type="button" ><a href="/login" style="text-decoration: none;">Login</a></button>
+              <button class="btn btn-outline-success me-2 " type="button" ><a href="{% url 'login' %}" style="text-decoration: none;">Login</a></button>
           </form>
           {% endif %}
             
