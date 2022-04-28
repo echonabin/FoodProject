@@ -1,0 +1,116 @@
+
+{% extends 'Mainapp/base.html'%}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block content%}
+<style>
+    *{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.content-backdrop{
+    width: 100%;
+    height: 60vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({{res.restImage.url}}); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.container{
+    width: 85%;
+    margin: auto;
+}
+
+.backdrop-content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top:78%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+}
+.backdrop-content img{
+    width: 150px;
+
+}
+
+.backdrop-content h1{
+    font-size: 2rem;
+}
+
+.backdrop-content h2{
+    font-size: 1.4rem;
+}
+
+.detail-section{
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.detail-section aside{
+    border-right: 1px solid black;
+}
+
+.detail-section aside h1{
+    margin-bottom: 1.2rem;
+}
+
+.main-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.main-details .detail-contents{
+    padding: 0.4rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid black;
+}
+
+.main-details .detail-contents:last-child{
+    margin-bottom: 0;
+}
+</style>
+
+<section class="main-section">
+    <div class="content-backdrop">
+        <div class="backdrop-content container">
+            <img src="{{res.restImage.url}}" alt="">
+            <div class="something">
+                <h1>{{res.name}}</h1>
+                <h2>{{res.owner}}</h2>
+                <h3>{{res.addres}}</h3>
+                <h5>{{res.opentime}}-{{res.closestime}}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="detail-section container">
+        <aside class="aside">
+            <h1>About Us</h1>
+            <p>{{res.des}}</p>
+        </aside>
+        <div class="main-details">
+            <ul>
+                <h1>Main Details</h1>
+               <li><div class="detail-contents">Burger&emsp;&emsp;&emsp;Rs240</div></li> 
+            </ul>
+           
+        </div>
+    </div>
+</section>
+
+
+
+
+{% endblock content %}

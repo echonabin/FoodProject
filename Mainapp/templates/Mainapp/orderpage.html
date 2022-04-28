@@ -1,0 +1,44 @@
+{% extends 'Mainapp/base.html'%}
+   {% load static %}
+   
+{% block content%}
+
+
+<section class="form my-4 mx-5">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-lg-5">
+          <img src="{% static 'images/login.jpg' %}" class="img-fluid" alt="...">
+        </div>
+        <div class="col-lg-7 px-5 pt-5">
+            <h1 class="">How to Order</h1>
+            <p class="lead">
+				Odering food is very simple from us. You can simply follow the step mentioned below.
+			</p>
+          <form action="">
+            <div class="form-row">
+              <div class="col-lg-7">
+                <b>Step 1:</b> First of all, find  restaurant of your choice from <a href="/restaurant">here</a>.  
+							There are many popular restaurants to choose from.
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-lg-7">
+                <b>	Step 2:</b> Select the foods of your choice from the selected restaurant's menu.
+                The menu and price listed on our website is exactly the same as the restaurant's table menu.
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-lg-7">
+                <b>Step 3:</b>	 Fill up the delivery details i.e. your detailed address, date and time for delivery and confirm your order.
+                We’ll deliver your order at your place, and you’ll pay us in cash upon delivery.
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content%}
+     

@@ -8,13 +8,15 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import logout
+from .models import Customer, Restaurant, Menu, Food
+from django.db import IntegrityError
 
 # Create your views here.
 from .models import *
 
 def home(request):
-    return render(request, 'Mainapp/index.html')
-
+    restaurants = Restaurant.objects.all()
+    return render( request, 'Mainapp/index.html', {'restaurants': restaurants})
 
 def aboutus(request):
     return render(request, 'Mainapp/aboutus.html')
@@ -22,8 +24,13 @@ def aboutus(request):
 def food(request):
     return render(request, 'Mainapp/food.html')
 
-def restaurant(request):
-    return render(request, 'Mainapp/restaurant.html')
+
+
+def restro(request):
+    restaurants = Restaurant.objects.all()
+    return render( request, 'Mainapp/restaurant.html', {'restaurants': restaurants})
+
+
 
 def login(request):
 
@@ -60,7 +67,7 @@ def register(request):
 def logout_view(request):
     if request.method == 'POST':
             logout(request)
-            return redirect('/')
+            return redirect('login')
 
 
    
@@ -78,6 +85,30 @@ def signout(request):
 
 def dilivery(request):
     return render(request, 'Mainapp/dilivery.html')   
+
+# def detail(request):
+#     return render(request, 'Mainapp/detail.html')  
+
+def detail(request, pk):
+    # dictionary for initial data with
+    # field names as keys
+    context ={}
+ 
+    # add the dictionary during initialization
+    context["res"] = Restaurant.objects.get(pk = pk)
+         
+    return render(request, "Mainapp/detail.html", context)
+
+
+
+
+
+
+def order(request):
+    return render(request, 'Mainapp/orderpage.html') 
+
+def contact(request):
+    return render(request, 'Mainapp/contact.html') 
 
 
 

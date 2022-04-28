@@ -16,46 +16,30 @@
      transform: scale(1.5);
   }
 
- </style>     
-       <section class="p-5">
-           <div class="container">
-           <div class="row text-align-center">
-             <div class="col-md">
-               <div class="card" style="width: 18rem;">
+ </style> 
+ 
+      
+       <section class="py-5">
+         <div class="container">
+           <div class="row">
+            {% for restro in restaurants %}
+             <div class="col-md-3 mt-5">
+              <div class="card" style="width: 18rem;">
                 <div class="inner">
-                  <img src="{% static 'images/5.jpg' %}" class="card-img-top" alt="...">
+                  <img src="{{restro.restImage.url}}" class="card-img-top" alt="...">
                 </div>
-                 <h4> <span class="text-dark text-align-center ">Bajeko Sekuwa </span> </h4>
-
+                <h4> <span class="text-dark text-align-center "><a style="text-decoration:none; color: black;" href="{% url 'detail' restro.pk %}">{{restro.name}}</a></span> </h4>
+                <p class="lead" >
+                {{restro.addres}}
+                </p>
                </div>
              </div>
-             <div class="col-md">
-               <div class="card" style="width: 18rem;">
-                 <div class="inner">
-                  <img src="{% static 'images/1.jpg' %}" class="card-img-top" alt="...">
-                 </div>
-                 <h4> <span class="text-dark text-align-center ">Burger House</span> </h4>
-               </div>
-             </div>
-             <div class="col-md">
-               <div class="card" style="width: 18rem;">
-                 <div class="inner">
-                  <img src="{% static 'images/1.jpg' %}" class="card-img-top" alt="...">
-                 </div>
-                 <h4> <span class="text-dark text-align-center ">Burger House</span> </h4>
-               </div>
-             </div>
-             <div class="col-md">
-               <div class="card" style="width: 18rem;">
-                <div class="inner">
-                  <img src="{% static 'images/2.jpg' %}" class="card-img-top" alt="...">
-                </div>
-                 <h5> <span class="text-dark text-align-center ">Chicken Station</span> </h5>
-               </div>
-             </div>
+            {% endfor %}
            </div>
          </div>
        </section>
-     
-      {% endblock content%}
+
+           
+      
+        {% endblock content%}
      
